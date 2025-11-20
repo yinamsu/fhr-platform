@@ -1,0 +1,167 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  EMPLOYER
+  WORKER
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum VisaStatus {
+  E9
+  H2
+  F4
+  F5
+  F6
+  OTHER
+}
+
+enum LanguageProficiency {
+  BASIC
+  INTERMEDIATE
+  ADVANCED
+  NATIVE
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      UserRole
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  workerProfile   WorkerProfile?
+  employerProfile EmployerProfile?
+
+  @@index([email])
+  @@index([role])
+}
+
+model WorkerProfile {
+  id           String    @id @default(cuid())
+  userId       String    @unique
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Personal Information
+  nationality  String
+  dateOfBirth  DateTime?
+  gender       Gender?
+  phone        String?
+  address      String?
+  
+  // Profile
+  profilePhoto String?   // URL or path to photo
+  bio          String?   @db.Text
+  
+  // Work Information
+  visaStatus   VisaStatus?
+  availableFrom DateTime?
+  preferredLocation String?
+  expectedSalary    Int?
+  
+  // Languages
+  koreanLevel  LanguageProficiency?
+  englishLevel LanguageProficiency?
+  nativeLanguage String?
+  
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  
+  workExperiences WorkExperience[]
+  educations      Education[]
+  skills          Skill[]
+
+  @@index([nationality])
+  @@index([visaStatus])
+  @@index([availableFrom])
+}
+
+model EmployerProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  companyName     String
+  businessNumber  String?  @unique
+  industry        String?
+  companySize     String?
+  description     String?  @db.Text
+  website         String?
+  phone           String?
+  address         String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([companyName])
+  @@index([industry])
+}
+
+model WorkExperience {
+  id              String        @id @default(cuid())
+  workerProfileId String
+  workerProfile   WorkerProfile @relation(fields: [workerProfileId], references: [id], onDelete: Cascade)
+  
+  jobTitle        String
+  companyName     String
+  location        String?
+  startDate       DateTime
+  endDate         DateTime?
+  isCurrent       Boolean       @default(false)
+  description     String?       @db.Text
+  
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([workerProfileId])
+}
+
+model Education {
+  id              String        @id @default(cuid())
+  workerProfileId String
+  workerProfile   WorkerProfile @relation(fields: [workerProfileId], references: [id], onDelete: Cascade)
+  
+  institution     String
+  degree          String?
+  fieldOfStudy    String?
+  startDate       DateTime?
+  endDate         DateTime?
+  isCurrent       Boolean       @default(false)
+  
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([workerProfileId])
+}
+
+model Skill {
+  id              String        @id @default(cuid())
+  workerProfileId String
+  workerProfile   WorkerProfile @relation(fields: [workerProfileId], references: [id], onDelete: Cascade)
+  
+  name            String
+  level           LanguageProficiency @default(INTERMEDIATE)
+  yearsOfExperience Int?
+  
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([workerProfileId])
+  @@index([name])
+}
