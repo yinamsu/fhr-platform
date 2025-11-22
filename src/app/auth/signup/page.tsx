@@ -1,20 +1,18 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-export default function SignUpPage() {
+function SignUpForm({ initialRole }: { initialRole: string }) {
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const defaultRole = searchParams.get('role') || 'WORKER'
 
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: '',
     name: '',
-    role: defaultRole.toUpperCase(),
+    role: initialRole.toUpperCase(),
   })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -208,5 +206,24 @@ export default function SignUpPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+function SignUpPageContent() {
+  const searchParams = useSearchParams()
+  const defaultRole = searchParams.get('role') || 'WORKER'
+  
+  return <SignUpForm initialRole={defaultRole} />
+}
+
+export default function SignUpPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="spinner w-8 h-8 border-4"></div>
+      </div>
+    }>
+      <SignUpPageContent />
+    </Suspense>
   )
 }

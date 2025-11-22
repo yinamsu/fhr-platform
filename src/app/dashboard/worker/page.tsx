@@ -186,7 +186,7 @@ export default async function WorkerDashboard() {
                 </div>
               </Link>
 
-              <Link href={`/workers/${profile.id}`} className="card group hover:shadow-xl transition-all">
+              <Link href={`/workers/${profile?.id || ''}`} className="card group hover:shadow-xl transition-all">
                 <div className="flex items-start gap-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

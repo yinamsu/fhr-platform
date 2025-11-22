@@ -1,13 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-export default function SignInPage() {
-  const router = useRouter()
+function SuccessMessage() {
   const searchParams = useSearchParams()
   const registered = searchParams.get('registered')
+
+  if (!registered) return null
+
+  return (
+    <div className="mb-6 p-4 bg-success-500/10 border border-success-500 rounded-lg">
+      <p className="text-success-500 text-sm text-center">
+        Account created successfully! Please sign in.
+      </p>
+    </div>
+  )
+}
+
+export default function SignInPage() {
+  const router = useRouter()
 
   const [formData, setFormData] = useState({
     email: '',
@@ -64,13 +77,9 @@ export default function SignInPage() {
         </div>
 
         {/* Success Message */}
-        {registered && (
-          <div className="mb-6 p-4 bg-success-500/10 border border-success-500 rounded-lg">
-            <p className="text-success-500 text-sm text-center">
-              Account created successfully! Please sign in.
-            </p>
-          </div>
-        )}
+        <Suspense fallback={null}>
+          <SuccessMessage />
+        </Suspense>
 
         {/* Form Card */}
         <div className="card-glass">
