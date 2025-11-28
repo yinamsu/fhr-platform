@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "badge": "Nền Tảng Kết Nối Lao Động Nước Ngoài",
+    "title": "Tìm Kiếm Tài Năng Hoàn Hảo Cho Bạn",
+    "subtitle": "Nền tảng thông minh kết nối lao động nước ngoài và nhà tuyển dụng",
+    "description": "Kết nối lao động nước ngoài lành nghề với nhà tuyển dụng.\nDuyệt hồ sơ, tìm kiếm nhân tài hoàn hảo và xây dựng đội ngũ của bạn với sự tự tin.",
+    "cta": {
+      "employer": "Bắt đầu với tư cách Nhà tuyển dụng",
+      "worker": "Đăng ký làm Người lao động",
+      "signIn": "Đăng nhập"
+    },
+    "alreadyHaveAccount": "Đã có tài khoản?"
+  },
+  "features": {
+    "title": "Tại sao chọn Nền tảng FHR?",
+    "subtitle": "Kết nối đơn giản, hiệu quả và hiệu suất",
+    "items": [
+      {
+        "title": "Tìm kiếm thông minh",
+        "description": "Bộ lọc nâng cao theo kỹ năng, kinh nghiệm, quốc tịch và khả năng làm việc"
+      },
+      {
+        "title": "Hồ sơ đã xác minh",
+        "description": "Hồ sơ người lao động chi tiết với kinh nghiệm và bằng cấp đã được xác minh"
+      },
+      {
+        "title": "Kết nối nhanh chóng",
+        "description": "Quy trình nhanh chóng và hiệu quả kết nối nhà tuyển dụng với ứng viên phù hợp"
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "Cách thức hoạt động",
+    "subtitle": "Bắt đầu với ba bước đơn giản",
+    "steps": [
+      {
+        "title": "Tạo tài khoản",
+        "description": "Đăng ký làm nhà tuyển dụng hoặc người lao động trong vài phút"
+      },
+      {
+        "title": "Hoàn thành hồ sơ",
+        "description": "Hoàn thành hồ sơ của bạn bao gồm kỹ năng và kinh nghiệm"
+      },
+      {
+        "title": "Bắt đầu kết nối",
+        "description": "Tìm kiếm hồ sơ và bắt đầu kết nối với nhân tài hoàn hảo"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Sẵn sàng bắt đầu?",
+    "subtitle": "Tham gia cùng hàng ngàn nhà tuyển dụng và người lao động tìm kiếm sự phù hợp hoàn hảo",
+    "button": "Tạo tài khoản miễn phí"
+  },
+  "footer": {
+    "copyright": "© 2025 FHR Platform. Bảo lưu mọi quyền."
+  }
+}

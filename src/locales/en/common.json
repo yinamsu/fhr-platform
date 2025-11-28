@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "badge": "Foreign Worker Matching Platform",
+    "title": "Find the Perfect Talent for You",
+    "subtitle": "Smart platform connecting foreign workers and employers",
+    "description": "Connecting skilled foreign workers with employers.\nBrowse profiles, find the perfect talent, and build your team with confidence.",
+    "cta": {
+      "employer": "Start as Employer",
+      "worker": "Register as Worker",
+      "signIn": "Sign In"
+    },
+    "alreadyHaveAccount": "Already have an account?"
+  },
+  "features": {
+    "title": "Why Choose FHR Platform?",
+    "subtitle": "Simple, efficient, and effective matching",
+    "items": [
+      {
+        "title": "Smart Search",
+        "description": "Advanced filtering by skills, experience, nationality, and availability"
+      },
+      {
+        "title": "Verified Profiles",
+        "description": "Detailed worker profiles with verified experience and qualifications"
+      },
+      {
+        "title": "Fast Matching",
+        "description": "Fast and efficient process connecting employers with suitable candidates"
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Get started in three simple steps",
+    "steps": [
+      {
+        "title": "Create Account",
+        "description": "Sign up as an employer or worker in minutes"
+      },
+      {
+        "title": "Complete Profile",
+        "description": "Complete your profile including skills and experience"
+      },
+      {
+        "title": "Start Matching",
+        "description": "Search profiles and start connecting with the perfect talent"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "subtitle": "Join thousands of employers and workers finding their perfect match",
+    "button": "Create Free Account"
+  },
+  "footer": {
+    "copyright": "© 2025 FHR Platform. All rights reserved."
+  }
+}

@@ -120,13 +120,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--foreground);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.25rem; }
-h3 { font-size: 1.875rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
-
 p {
   color: var(--foreground-secondary);
 }
@@ -147,6 +140,19 @@ a:hover {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
+}
+
+/* Custom Spacing Utilities */
+.mb-hero {
+  margin-bottom: 1.5rem;
+}
+
+.mb-section {
+  margin-bottom: 2rem;
+}
+
+.mb-extreme {
+  margin-bottom: 5rem;
 }
 
 .card {
@@ -415,4 +421,9 @@ a:hover {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--foreground-secondary);
+}
+
+/* Custom Fix for Text Alignment */
+.force-center {
+  text-align: center !important;
 }
