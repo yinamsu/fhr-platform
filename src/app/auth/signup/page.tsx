@@ -62,22 +62,24 @@ function SignUpForm({ initialRole }: { initialRole: string }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4">
-      <div className="max-w-md w-full">
+      <div className="max-w-md w-full flex flex-col gap-8">
         {/* Header */}
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-block mb-6">
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <Link href="/">
             <h1 className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
               FHR Platform
             </h1>
           </Link>
-          <h2 className="text-2xl font-bold mb-2">Create Your Account</h2>
-          <p className="text-foreground-secondary">
-            Join as {formData.role === 'EMPLOYER' ? 'an Employer' : 'a Worker'}
-          </p>
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <h2 className="text-2xl font-bold">Create Your Account</h2>
+            <p className="text-foreground-secondary">
+              Join as {formData.role === 'EMPLOYER' ? 'an Employer' : 'an Employee'}
+            </p>
+          </div>
         </div>
 
         {/* Form Card */}
-        <div className="card-glass">
+        <div className="card-glass mt-6">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Role Selection */}
             <div className="form-group">
@@ -86,27 +88,27 @@ function SignUpForm({ initialRole }: { initialRole: string }) {
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, role: 'WORKER' })}
-                  className={`p-4 rounded-lg border-2 transition-all ${
+                  className={`py-8 px-4 rounded-lg border-2 transition-all flex items-center justify-center gap-3 ${
                     formData.role === 'WORKER'
-                      ? 'border-primary-500 bg-primary-50'
-                      : 'border-border hover:border-primary-300'
+                      ? 'border-transparent bg-gradient-to-br from-secondary-500 to-secondary-600 text-white ring-2 ring-secondary-500 ring-offset-2 shadow-lg scale-[1.02]'
+                      : 'border-border hover:border-secondary-300 hover:bg-secondary-500/10'
                   }`}
                 >
-                  <svg className="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
-                  <span className="font-semibold">Worker</span>
+                  <span className="font-semibold">Employee</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, role: 'EMPLOYER' })}
-                  className={`p-4 rounded-lg border-2 transition-all ${
+                  className={`py-8 px-4 rounded-lg border-2 transition-all flex items-center justify-center gap-3 ${
                     formData.role === 'EMPLOYER'
-                      ? 'border-primary-500 bg-primary-50'
-                      : 'border-border hover:border-primary-300'
+                      ? 'border-transparent bg-gradient-to-br from-primary-500 to-primary-600 text-white ring-2 ring-primary-500 ring-offset-2 shadow-lg scale-[1.02]'
+                      : 'border-border hover:border-primary-300 hover:bg-primary-500/10'
                   }`}
                 >
-                  <svg className="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <span className="font-semibold">Employer</span>
